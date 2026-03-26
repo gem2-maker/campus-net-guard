@@ -85,6 +85,20 @@ python campus_net_guard.py
 
 ---
 
+## 运行目录要求（重要）
+
+结论：**基本不挑当前工作目录**，但推荐从项目根目录运行。
+
+- 推荐：在项目根目录执行 `python campus_net_guard.py --once` 或 `python campus_net_guard.py`
+- 也可以：在任意目录直接调用脚本绝对路径（脚本会基于自身路径找配置和日志）
+
+### 计划任务注意事项
+
+`install_campus_net_task.ps1` 会把当前 `run_campus_net_guard.ps1` 的**绝对路径**写入计划任务。
+
+- 安装任务后，尽量不要移动项目目录
+- 如果你移动了目录，请重新执行一次 `install_campus_net_task.ps1` 以更新任务路径
+
 ## 可选：后台运行
 
 如果你不想开着终端窗口，可以用：
