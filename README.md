@@ -1,26 +1,29 @@
-# Campus Net Guard（脱敏发布版）
+# Campus Net Guard（Sanitized Release）
 
-这是**校园网自动登录脚本的脱敏发布副本**。
+本仓库为校园网自动登录工具的**脱敏发布版本**，用于代码分发与复用。
 
-- ✅ 已移除真实账号密码
-- ✅ 本仓库只包含模板配置
-- ✅ 不影响你电脑上的原始脚本
+## 项目说明
 
----
+Campus Net Guard 用于在网络中断或会话失效后自动执行校园网认证，减少手动重复登录操作。
 
-## 文件说明
+本发布版本已完成敏感信息清理：
+
+- 不包含任何真实账号、密码或个人标识信息
+- 默认提供模板化配置文件，需使用者自行填写
+- 不影响原始本地脚本与私有配置
+
+## 目录结构
 
 - `campus_net_guard.py`：主程序
-- `campus-net-guard.json`：配置模板（需自行填写）
+- `campus-net-guard.json`：配置模板
 - `run_campus_net_guard.ps1`：后台启动脚本
-- `install_campus_net_routes.ps1`：安装校园网直连路由
-- `install_campus_net_task.ps1`：安装开机自启任务
+- `install_campus_net_routes.ps1`：校园网直连路由安装脚本
+- `install_campus_net_task.ps1`：开机自启动任务安装脚本
 
----
+## 快速开始
 
-## 快速使用
+### 1. 配置参数
 
-### 1) 填配置
 编辑 `campus-net-guard.json`：
 
 ```json
@@ -32,31 +35,29 @@
 }
 ```
 
-### 2) 单次测试
+### 2. 单次测试运行
 
 ```powershell
 python campus_net_guard.py --once
 ```
 
-### 3) 常驻运行
+### 3. 常驻运行
 
 ```powershell
 python campus_net_guard.py
 ```
 
----
+## 安全与发布建议
 
-## 安全说明
+- 请勿将真实凭据写入并提交到仓库
+- 建议在本地使用独立私有配置文件存放敏感字段
+- 推送前请检查变更，确保未包含日志、缓存或隐私数据
 
-- 本发布版不包含你的真实凭据
-- 仅你本机私有目录中的配置文件可写入真实账号密码
-- 若要上传 GitHub，请确认不要提交含真实密码的配置文件
+## 适用环境
 
----
+- 操作系统：Windows（PowerShell）
+- 运行时：Python 3.x
 
-## 备注
+## 免责声明
 
-如果你需要，我可以再补一版：
-- `.gitignore`（默认忽略本地真实配置和日志）
-- `LICENSE`
-- 常见问题（FAQ）
+本项目仅用于合法、合规的网络认证自动化场景。使用者需自行确保符合学校与网络服务提供方相关规定。
